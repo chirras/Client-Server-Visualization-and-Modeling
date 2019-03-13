@@ -33,15 +33,17 @@ class ROC(Resource):
 		modelLR = LogisticRegression(C=float(c))
 		modelLR.fit(X_train_Scaled, y_train)
 		# Predicting on the test data
-		y_pred = modelLR.predict(X_test_Sclaed)
+		y_pred = modelLR.predict_proba(X_test_Sclaed)
 		# ROC_Curve
-		fpr, tpr, thresholds = roc_curve(y_test, y_pred)
+		fpr, tpr, thresholds = roc_curve(y_test, y_pred[:,1])
 		# return the false positives, true positives, and thresholds using roc_curve()
 		#return  '{} {} {}'.format(fpr, tpr, thresholds)
-		rocData = {"FalsePositive": {i:float(fpr[i]) for i in range(len(fpr))}, "TruePositive": {i:float(tpr[i]) for i in range(len(tpr))}, 
-			"Threshold": {i:float(thresholds[i]) for i in range(len(thresholds))}}
+		rocData = list()
+		for i in range(len(fpr)):
+		    values = {"fpr": fpr[i], "tpr": tpr[i], "threshold": thresholds[i]}
+		    rocData.append(values)
 
-		return json.dumps((rocData))
+		return rocData
 
 
 
