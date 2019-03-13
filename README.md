@@ -5,7 +5,7 @@ Below are the steps to be followed for client server visualization model
 
 1. Clone/Download the repository
 2. Run the flask server using "python ScriptName" (For instance: python flask_roc.py)
-3. Above stemp will start the flask app and provides url.
+3. Above step will start the flask app and provides url.
 4. Change the directory path to src and execute "python3 -m http.server" in a new terminal.
 5. This will start the server locally at a port (Mostly 8000)
 6. Go to the URL using any borwser, where you will asked to select a scaling method and Value of Inverse of regularization strength 'C'.
