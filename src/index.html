@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Client-Server-Visualization</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    </head>
+    <body>
+
+        <h1 align="center">Client Server Data Visualization</h1>
+        <p id="par"> Performance of the model to predict whether he/she donated blood in March 2007. We are using logistic regression to predict whether he/she donated blood in March 2007. Please select <strong> preprocessing method </strong> and enter a value of <strong> Inverse of regularization strength 'C' </strong> to see how the model performance changes. </p>
+
+        <p> Select preprocessing type from the below dropdown: </p>
+
+        <select name="Scalers" id="Scalers">
+            <option value="" selected disabled hidden>Scaler</option>
+            <option value="1">MinMax</option>
+            <option value="2">StandardScaler</option>
+        </select>
+
+        <p> Enter a positive value for Inverse of Regularization Strength 'C': </p>
+
+        <input type="number" id="valueOfC" name="C" min="0"> 
+        <br><br>
+
+        <!-- <input type="submit" id="data", onclick="return displayData();"> -->
+        <button type="submit" onclick="displayData()">submit</button>
+        <br><br>
+
+        <script src='https://d3js.org/d3.v4.min.js'></script>
+        <script src="scripts/main.js"></script>
+
+    </body>
+</html>
